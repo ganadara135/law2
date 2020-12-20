@@ -1,0 +1,1 @@
+from .law_go_kr_spider import LawgokrSpider
