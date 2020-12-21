@@ -43,6 +43,33 @@ lawlaw2
     Solition: 32766 / 3 = 10922
     URL : https://www.elastic.co/guide/en/elasticsearch/reference/2.4/ignore-above.html
 
+# Elasticsearch Creating Index From Console
+
+    curl -v -XPUT "localhost:9200/law_go_kr" -H 'Content-Type: application/json' -d '
+        {
+            "mappings" : {
+              "properties" : {
+                "case_id" : {
+                  "type" : "keyword"
+                },
+                "detail_data_html" : {
+                  "type" : "text",
+                  "index": false
+                },
+                "detail_data_searchable" : {
+                  "type" : "keyword",
+                  "ignore_above" : 10922
+                },
+                "index_data" : {
+                  "type" : "keyword"
+                }
+              }
+            }
+        }
+        
+     '
+
+
 # Elasticsearch Queries
    * Delete index
     
