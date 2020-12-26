@@ -6,11 +6,16 @@ lawlaw2
 
     $ pip3 install -r requirements.txt
 
+# Spider Installation
+
+    $ docker build -t law_go_kr_spider:v1.0 -f Dockerfile_SPIDER .
+    $ docker run -d --restart unless-stopped  --network=host -h 127.0.0.1 law_go_kr_spider:v1.0 
+
 
 
 # Elasticsearch-Kibana Installation
 
-    $ docker build -t es_supported_nori:v1.0 .
+    $ docker build -t es_supported_nori:v1.0 -f Dockerfile_ES .
     $ docker run -d --restart unless-stopped  -p 9200:9200 -p 5601:5601 es_supported_nori:v1.0
 
 # Elasticsearch Creating Index
