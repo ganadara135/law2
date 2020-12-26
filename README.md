@@ -11,12 +11,18 @@ lawlaw2
     $ docker build -t law_go_kr_spider:v1.0 -f Dockerfile_SPIDER .
     $ docker run -d --restart unless-stopped  --network=host -h 127.0.0.1 law_go_kr_spider:v1.0 
 
+# Portainer Installation
 
+    $ docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+
+    # Port = 9000 | Username = admin | Password = vK7eeGgE
 
 # Elasticsearch-Kibana Installation
 
     $ docker build -t es_supported_nori:v1.0 -f Dockerfile_ES .
     $ docker run -d --restart unless-stopped  -p 9200:9200 -p 5601:5601 es_supported_nori:v1.0
+
+    # Port = 5601
 
 # Elasticsearch Creating Index
 
