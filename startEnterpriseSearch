@@ -1,0 +1,28 @@
+$ docker network create elastic-network
+
+$ docker build -t es_supported_nori:v1.0 -f Dockerfile_ES .
+
+$ docker run -d -it  -p 9200:9200 -p 5601:5601 -p 9300:9300 --network elastic-network \
+  --name elastic \
+  -e discovery.type=single-node \
+  -e xpack.security.enabled=true \
+  -e xpack.security.authc.api_key.enabled=true \
+  docker.elastic.co/elasticsearch/elasticsearch:7.9.0
+
+
+$ docker exec -it elastic /usr/share/elasticsearch/bin/elasticsearch-setup-passwords interactive
+
+
+
+info:  openssl rand -hex 32
+
+
+
+$ docker run -p 3002:3002 --name workplace --network elastic-network \
+-e elasticsearch.host='http://elastic:elastic@elastic:9200' \
+-e ent_search.auth.source=standard \
+-e elasticsearch.username=elastic \
+-e elasticsearch.password=elastic \
+-e allow_es_settings_modification=true \
+-e secret_management.encryption_keys='[e2cf0f128f730c3343fc137e0cc06f3677d20e170c06a91146f448e9b97fe0cf]' \
+docker.elastic.co/enterprise-search/enterprise-search:7.9.0

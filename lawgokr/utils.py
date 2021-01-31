@@ -17,9 +17,19 @@ def logger(message):
         file.write(message + '\n')
 
 
+# es = Elasticsearch(
+#     [
+#         'http://user:secret@localhost:9200/',
+#         'https://user:secret@other_host:443/production'
+#     ],
+#     verify_certs=True
+# )
+
+
 def create_connection():
     try:
-        connections.create_connection(hosts=[f'{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}'])
+        # connections.create_connection(hosts=[f'{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}'])
+        connections.create_connection(hosts=[ 'http://elastic:changeme@localhost:9200/' ])
     except Exception as e:
         logger(str(e))
         raise ElasticSearchError('Elasticsearch Connection Error')
