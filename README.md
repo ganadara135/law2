@@ -5,7 +5,7 @@ Dockerfile_SPIDER 만 사용
 
 utils.py 파일에서 아래 부분 수정해서 사용
 
-connections.create_connection(hosts=[f'{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}'])
+connections.create_connection(hosts=[f'{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}']) <br>
 EX)   connections.create_connection(hosts=[ 'http://elastic:changeme@localhost:9200/' ])
 
 
