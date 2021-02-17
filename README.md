@@ -1,4 +1,4 @@
-# only use Docker for SPIDER
+# only use Docker for SPIDER, currently
 Spider를 통해 추출한 데이터를 Elasticsearch 에 저장
 Elasticsearch는 repo: elktW 것 사용
 Dockerfile_SPIDER 만 사용
@@ -8,9 +8,9 @@ utils.py 파일에서 아래 부분 수정해서 사용
 connections.create_connection(hosts=[f'{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}']) <br>
 EX)   connections.create_connection(hosts=[ 'http://elastic:changeme@localhost:9200/' ])
 
+아래 Spider Installation 절차 따름
+Kibana colsole 에서 Elasticsearch Creating Index 수행
 
-# lawlaw2
-lawlaw2
 
 
 # Install Spider Requirements
