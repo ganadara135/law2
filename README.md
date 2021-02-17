@@ -1,3 +1,14 @@
+# only use Docker for SPIDER
+Spider를 통해 추출한 데이터를 Elasticsearch 에 저장
+Elasticsearch는 repo: elktW 것 사용
+Dockerfile_SPIDER 만 사용
+
+utils.py 파일에서 아래 부분 수정해서 사용
+
+connections.create_connection(hosts=[f'{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}'])
+EX)   connections.create_connection(hosts=[ 'http://elastic:changeme@localhost:9200/' ])
+
+
 # lawlaw2
 lawlaw2
 

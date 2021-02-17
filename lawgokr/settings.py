@@ -1,3 +1,4 @@
+# 아래 설정 파일은 역할을 못함, utils.py 관련 부분에 하드코딩해 놓음
 # ELASTICSEARCH_HOST = '172.17.38.134'
 ELASTICSEARCH_HOST = 'localhost'
 ELASTICSEARCH_PORT = 9200
